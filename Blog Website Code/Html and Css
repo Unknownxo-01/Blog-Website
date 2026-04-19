@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Art of Mindful Living – A Blog Post</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      background-color: #f5f4ef;
+      color: #2c2c2a;
+      line-height: 1.8;
+      font-size: 18px;
+    }
+
+    /* ── Header / Hero ── */
+    header {
+      background-color: #1a1a18;
+      color: #f5f4ef;
+      padding: 3rem 2rem 2.5rem;
+      text-align: center;
+    }
+
+    header .category-tag {
+      display: inline-block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background-color: #d4a843;
+      color: #1a1a18;
+      padding: 4px 14px;
+      border-radius: 2px;
+      margin-bottom: 1.25rem;
+    }
+
+    header h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      max-width: 720px;
+      margin: 0 auto 1.25rem;
+    }
+
+    header .subtitle {
+      font-style: italic;
+      color: #b4b2a9;
+      font-size: 1.1rem;
+      max-width: 560px;
+      margin: 0 auto 2rem;
+    }
+
+    .post-meta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 13px;
+      color: #888780;
+    }
+
+    .post-meta .author-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background-color: #3c3489;
+      color: #cecbf6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+
+    .post-meta .meta-details {
+      text-align: left;
+    }
+
+    .post-meta .author-name {
+      color: #f5f4ef;
+      font-weight: 500;
+      font-size: 14px;
+    }
+
+    .meta-divider { color: #444441; }
+
+    /* ── Navigation bar ── */
+    nav {
+      background-color: #f5f4ef;
+      border-bottom: 1px solid #d3d1c7;
+      padding: 0.8rem 2rem;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 13px;
+    }
+
+    nav ol {
+      list-style: none;
+      display: flex;
+      gap: 0.5rem;
+      max-width: 800px;
+      margin: 0 auto;
+      color: #888780;
+    }
+
+    nav ol li::after { content: '›'; margin-left: 0.5rem; }
+    nav ol li:last-child::after { content: ''; }
+    nav ol li a { color: #5f5e5a; text-decoration: none; }
+    nav ol li a:hover { color: #185fa5; text-decoration: underline; }
+    nav ol li:last-child { color: #2c2c2a; font-weight: 500; }
+
+    /* ── Main layout ── */
+    .page-wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 3rem 2rem 5rem;
+    }
+
+    /* ── Featured image ── */
+    figure {
+      margin: 0 0 3rem;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid #d3d1c7;
+    }
+
+    figure img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      display: block;
+    }
+
+    figcaption {
+      background-color: #fff;
+      padding: 0.65rem 1rem;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 12.5px;
+      color: #888780;
+      border-top: 1px solid #d3d1c7;
+    }
+
+    /* ── Article sections ── */
+    article section { margin-bottom: 2.5rem; }
+
+    article h2 {
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: #1a1a18;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #d4a843;
+      display: inline-block;
+    }
+
+    article p { margin-bottom: 1.2rem; color: #2c2c2a; }
+
+    /* Drop cap on first paragraph */
+    section.intro p:first-of-type::first-letter {
+      float: left;
+      font-size: 4rem;
+      line-height: 0.8;
+      margin: 0.1em 0.1em 0 0;
+      color: #3c3489;
+      font-weight: 700;
+    }
+
+    /* Pull quote */
+    blockquote {
+      margin: 2rem 0;
+      padding: 1.25rem 1.75rem;
+      border-left: 4px solid #3c3489;
+      background-color: #eeedfe;
+      border-radius: 0 4px 4px 0;
+    }
+
+    blockquote p {
+      font-style: italic;
+      font-size: 1.15rem;
+      color: #3c3489;
+      margin: 0;
+    }
+
+    /* Unordered list */
+    article ul {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 1.5rem;
+    }
+
+    article ul li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.75rem 1rem;
+      margin-bottom: 0.5rem;
+      background-color: #fff;
+      border: 1px solid #d3d1c7;
+      border-radius: 4px;
+      font-size: 0.97rem;
+    }
+
+    article ul li::before {
+      content: '✦';
+      color: #d4a843;
+      flex-shrink: 0;
+      margin-top: 2px;
+      font-size: 13px;
+    }
+
+    /* ── Tags ── */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2.5rem;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    .tags a {
+      font-size: 12px;
+      padding: 4px 12px;
+      border: 1px solid #b4b2a9;
+      border-radius: 20px;
+      color: #5f5e5a;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+
+    .tags a:hover { background-color: #d3d1c7; }
+
+    /* ── CTA / Read More ── */
+    .cta-box {
+      margin-top: 3rem;
+      padding: 2rem 2.25rem;
+      background-color: #1a1a18;
+      border-radius: 6px;
+      text-align: center;
+    }
+
+    .cta-box p {
+      color: #b4b2a9;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 15px;
+      margin-bottom: 1.25rem;
+    }
+
+    .cta-box a.read-more {
+      display: inline-block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      background-color: #d4a843;
+      color: #1a1a18;
+      padding: 0.75rem 2rem;
+      border-radius: 3px;
+      transition: background 0.15s;
+    }
+
+    .cta-box a.read-more:hover { background-color: #ba7517; }
+
+    /* ── Footer ── */
+    footer {
+      background-color: #1a1a18;
+      color: #888780;
+      text-align: center;
+      padding: 1.75rem 2rem;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 13px;
+    }
+
+    footer a { color: #d4a843; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 600px) {
+      .page-wrapper { padding: 2rem 1.25rem 4rem; }
+      figure img { height: 220px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══ Site navigation (breadcrumb) ══ -->
+  <nav aria-label="Breadcrumb">
+    <ol>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Wellness</a></li>
+      <li>The Art of Mindful Living</li>
+    </ol>
+  </nav>
+
+  <!-- ══ Post header ══ -->
+  <header>
+    <span class="category-tag">Wellness &amp; Lifestyle</span>
+    <h1>The Art of Mindful Living: Small Habits That Transform Your Day</h1>
+    <p class="subtitle">Discover how weaving tiny moments of awareness into your routine can lead to lasting calm and clarity.</p>
+    <div class="post-meta">
+      <div class="author-avatar" aria-hidden="true">SC</div>
+      <div class="meta-details">
+        <span class="author-name">By Sophia Chen</span><br />
+        <time datetime="2026-04-17">April 17, 2026</time>
+        <span class="meta-divider"> · </span>
+        8 min read
+      </div>
+    </div>
+  </header>
+
+  <!-- ══ Main content ══ -->
+  <main class="page-wrapper">
+    <article>
+
+      <!-- Featured image -->
+      <figure>
+        <img
+          src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=900&auto=format&fit=crop"
+          alt="Person sitting cross-legged on a wooden deck, meditating at sunrise"
+          width="900"
+          height="380"
+        />
+        <figcaption>Morning meditation is one of the simplest ways to anchor your day. — Photo: Unsplash</figcaption>
+      </figure>
+
+      <!-- Introduction -->
+      <section class="intro" aria-labelledby="intro-heading">
+        <h2 id="intro-heading">Introduction</h2>
+        <p>
+          We live in an era of relentless distraction — notifications, deadlines, and the constant
+          hum of digital noise. Mindfulness offers a quiet counterpoint: the practice of paying
+          deliberate, non-judgmental attention to the present moment. What surprises most people
+          is how little time it requires to feel a real difference.
+        </p>
+        <p>
+          This post explores the foundations of mindful living, not as an abstract philosophy
+          but as a set of concrete, everyday habits that almost anyone can adopt — regardless of
+          how busy life gets.
+        </p>
+
+        <blockquote>
+          <p>"You can't stop the waves, but you can learn to surf." — Jon Kabat-Zinn</p>
+        </blockquote>
+      </section>
+
+      <!-- Main content -->
+      <section aria-labelledby="habits-heading">
+        <h2 id="habits-heading">Five Habits Worth Starting Today</h2>
+        <p>
+          Research in positive psychology and neuroscience consistently shows that small,
+          repeated behaviours rewire the brain over time. Here are five evidence-backed habits
+          that form the backbone of a mindful lifestyle:
+        </p>
+
+        <ul>
+          <li>
+            <strong>Morning breathwork (5 minutes):</strong> Begin each day with four cycles of
+            box breathing — inhale for 4 counts, hold for 4, exhale for 4, hold for 4. It
+            activates the parasympathetic nervous system and reduces cortisol before the day
+            has even started.
+          </li>
+          <li>
+            <strong>Single-tasking windows:</strong> Set a 25-minute timer and work on one task
+            only — phone face-down, notifications silenced. The quality of attention you bring
+            to a single task is almost always superior to what you achieve while multitasking.
+          </li>
+          <li>
+            <strong>Mindful meals:</strong> Eat at least one meal per day without screens.
+            Notice flavours, textures, and fullness cues. This simple act has been linked to
+            healthier portion control and greater meal satisfaction.
+          </li>
+          <li>
+            <strong>Gratitude journalling (3 entries):</strong> Before bed, write three specific
+            things you are grateful for. Specificity is key — "the smell of rain this afternoon"
+            is more powerful than "nature".
+          </li>
+          <li>
+            <strong>Digital sunset:</strong> Switch off all screens at least 60 minutes before
+            sleep. Replace that time with reading, gentle stretching, or simply sitting in
+            comfortable silence.
+          </li>
+        </ul>
+
+        <p>
+          None of these habits demands a retreat to the Himalayas or hours of free time. They
+          slot into the margins of an ordinary day — the gaps most of us already have, but
+          rarely use intentionally.
+        </p>
+      </section>
+
+      <!-- Conclusion -->
+      <section aria-labelledby="conclusion-heading">
+        <h2 id="conclusion-heading">Conclusion</h2>
+        <p>
+          Mindful living is not a destination — it is a direction. Some days will feel clearer
+          than others, and that is entirely normal. The goal is not perfection but consistency:
+          returning, again and again, to the simple act of noticing where you are and how you
+          feel right now.
+        </p>
+        <p>
+          Start with a single habit this week. Keep it small enough that skipping it would
+          feel strange. Over time, these small deposits compound — and the interest they pay
+          is a calmer, more intentional life.
+        </p>
+      </section>
+
+      <!-- Tags -->
+      <div class="tags" aria-label="Post tags">
+        <a href="#">Mindfulness</a>
+        <a href="#">Wellness</a>
+        <a href="#">Habits</a>
+        <a href="#">Mental Health</a>
+        <a href="#">Productivity</a>
+      </div>
+
+      <!-- Read More CTA -->
+      <div class="cta-box">
+        <p>Enjoyed this post? There is a full series on building a mindful morning routine — practical, science-backed, and jargon-free.</p>
+        <a href="#" class="read-more">Read the Full Series →</a>
+      </div>
+
+    </article>
+  </main>
+
+  <!-- ══ Footer ══ -->
+  <footer>
+    <p>© 2026 The Mindful Dispatch · <a href="#">Privacy Policy</a> · <a href="#">Contact</a></p>
+  </footer>
+
+</body>
+</html>
